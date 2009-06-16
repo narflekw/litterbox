@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  psa_type: MyString
+  message: MyText
+  start_on: 2009-06-15
+  end_on: 2009-06-15
+
+two:
+  psa_type: MyString
+  message: MyText
+  start_on: 2009-06-15
+  end_on: 2009-06-15

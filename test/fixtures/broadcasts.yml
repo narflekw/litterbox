@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  start_at: 2009-06-15 22:34:34
+  end_at: 2009-06-15 22:34:34
+  duration_seconds: 1
+  podcast: MyString
+  completed: false
+
+two:
+  start_at: 2009-06-15 22:34:34
+  end_at: 2009-06-15 22:34:34
+  duration_seconds: 1
+  podcast: MyString
+  completed: false

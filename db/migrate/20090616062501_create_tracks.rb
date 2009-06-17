@@ -4,6 +4,7 @@ class CreateTracks < ActiveRecord::Migration
       t.string :name
       t.integer :album_id
       t.integer :duration_seconds
+      t.integer :album_position
 
       t.timestamps
     end

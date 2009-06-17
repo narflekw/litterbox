@@ -1,5 +1,6 @@
 class DjProfile < ActiveRecord::Base
   belongs_to :user
   has_one :show
-  has_and_belongs_to_many :broadcasts
+  has_many :broadcast_presences
+  has_many :broadcasts, :through=>:broadcast_presences
 end

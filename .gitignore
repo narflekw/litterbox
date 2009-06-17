@@ -1,3 +1,6 @@
+log/*.log
+doc/models*.png
+doc/controllers*.png
 *.sqlite3
 schema.rb
 logs/*.log

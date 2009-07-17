@@ -1,4 +1,19 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :guests
+
+
+  map.resources :dj_profiles
+
+  map.resources :events
+
+  map.resources :event_types
+
+  map.resources :locations
+
+  map.resources :log_entries
+
+  map.resources :time_slots
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -23,6 +38,9 @@ ActionController::Routing::Routes.draw do |map|
   #     products.resources :comments
   #     products.resources :sales, :collection => { :recent => :get }
   #   end
+  map.resources :shows do |shows|
+    shows.resources :broadcasts
+  end
 
   # Sample resource route within a namespace:
   #   map.namespace :admin do |admin|
@@ -31,7 +49,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
+  map.root :controller => "shows"
 
   # See how all your routes lay out with "rake routes"
 

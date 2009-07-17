@@ -1,0 +1,2 @@
+class PublicServiceAnnouncementsController < ApplicationController
+end

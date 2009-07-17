@@ -1,0 +1,2 @@
+class BroadcastsController < ApplicationController
+end

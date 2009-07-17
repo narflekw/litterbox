@@ -1,0 +1,2 @@
+class BroadcastPresencesController < ApplicationController
+end

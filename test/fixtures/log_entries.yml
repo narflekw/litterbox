@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  broadcast_id: 1
+  logged_id: 1
+  logged_type: MyString
+  timecode: 1.5
+
+two:
+  broadcast_id: 1
+  logged_id: 1
+  logged_type: MyString
+  timecode: 1.5

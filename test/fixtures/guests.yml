@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  guest_type: MyString
+  description: MyString
+  show_id: 1
+  appear_on: 2009-07-15 18:59:11
+
+two:
+  name: MyString
+  guest_type: MyString
+  description: MyString
+  show_id: 1
+  appear_on: 2009-07-15 18:59:11

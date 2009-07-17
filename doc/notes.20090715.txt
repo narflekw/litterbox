@@ -1,0 +1,2 @@
+djs: need to submit event posts  ( stuff that's gonna happen )
+broadcast model needs: notes:text, equipment_ok:boolean

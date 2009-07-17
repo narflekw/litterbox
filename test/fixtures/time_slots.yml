@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  scheduled_id: 1
+  scheduled_type: MyString
+  weekday: MyString
+  start_at: 2009-07-15 16:22:38
+  duration_minutes: 1
+
+two:
+  scheduled_id: 1
+  scheduled_type: MyString
+  weekday: MyString
+  start_at: 2009-07-15 16:22:38
+  duration_minutes: 1

@@ -1,0 +1,29 @@
+<% content_for(:styles) do -%>
+  .weekday { 
+    float: left;
+    margin-right: 15px;
+    background: #ccc;
+  }
+  .time_slot {
+    border: 1px dashed black;
+    width: 250px;
+  }
+  .time_slot.current { background-color: #fcc; }
+  .time_slot.h_1 { height: 40px; }
+  .time_slot.h_2 { height: 80px; }
+  .time_slot.h_3 { height: 120px; }
+  .time_slot.h_4 { height: 160px; }
+
+<% end -%>
+<% @time_slots.sort_by{|t| TimeSlot::WEEKDAY_SORT_ORDER.index(t.weekday)}.group_by(&:weekday).each do|weekday, time_slots| -%>
+  <div class='weekday' id='<%= weekday %>'>
+    <h1><%= weekday %></h1>
+    <% time_slots.sort_by(&:start_at).each do|t| %>
+      <div class="time_slot h_<%=t.duration_minutes/60-%><%= ' current' if t.current? -%>" id="<%= t.id %>">
+      <%= t.id %>)
+      <%= t.start_time %>-<%= t.end_time %>:
+      <%= t.scheduled.name %>
+      </div>
+    <% end %>
+  </div>
+<% end -%>

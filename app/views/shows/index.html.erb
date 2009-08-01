@@ -1,2 +1,5 @@
 <h1>Shows#index</h1>
 <p>Find me in app/views/shows/index.html.erb</p>
+<div class="list" id="shows">
+  <%= @shows.sort_by{|s| s.name }.collect{|s| "#{s.id}) #{s.name} (#{s.time_slots.collect{|t| t.weekday+'-'+t.start_at.strftime('%H%p')}.join(', ')})"}.join('<br/>') %>
+</div>

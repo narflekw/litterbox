@@ -11,6 +11,12 @@ class TimeSlotsController < ApplicationController
                                                          :include => { :scheduled=>{:only=>[:id,:name]}
                                                                      }
                                                         ) }
+      client_wants.json { render :json=>@time_slots.to_json(:skip_types => true,
+                                                         :except => [:scheduled_id, :created_at, :updated_at, :start_at], 
+                                                         :methods => [:start_time, :end_time],
+                                                         :include => { :scheduled=>{:only=>[:id,:name]}
+                                                                     }
+                                                        ) }
     end
   end
   

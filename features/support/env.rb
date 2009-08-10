@@ -22,3 +22,6 @@ end
 
 # require 'cucumber/rails/rspec'
 # require 'webrat/core/matchers'
+require 'shoulda'
+require 'factory_girl'
+require "#{Rails.root}/test/factories" 

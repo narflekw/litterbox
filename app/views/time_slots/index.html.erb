@@ -1,28 +1,52 @@
 <% content_for(:styles) do -%>
+  #row_labels , 
   .weekday { 
     float: left;
-    margin-right: 15px;
     background: #ccc;
   }
+  .weekday h1 { text-align: center; }
   .time_slot {
     border: 1px dashed black;
+    border-bottom: none;
+    border-right: none;
     width: 250px;
   }
   .time_slot.current { background-color: #fcc; }
-  .time_slot.h_1 { height: 40px; }
-  .time_slot.h_2 { height: 80px; }
-  .time_slot.h_3 { height: 120px; }
-  .time_slot.h_4 { height: 160px; }
+  .time_slot.h_1 { height: 41px; }
+  .time_slot.h_2 { height: 81px; }
+  .time_slot.h_3 { height: 123px; }
+  .time_slot.h_4 { height: 164px; }
+  .row {
+    border: 1px dashed black;
+    border-bottom: none;
+    border-right: none;
+    height: 40px;
+    text-align: center;
+  }
+  .show {
+    margin: 5px;
+    text-align: center;
+  }
+  .show .timeslots { display: none; }
 
 <% end -%>
+  <div id="row_labels">
+    <h1>Time\Weekday</h1>
+      <div class='row'>12AM</div>
+    <% (1..11).each do|hour| -%>
+      <div class='row'><%= hour %>AM</div>
+    <% end -%>
+      <div class='row'>12PM</div>
+    <% (1..11).each do|hour| -%>
+      <div class='row'><%= hour %>PM</div>
+    <% end -%>
+  </div>
 <% @time_slots.sort_by{|t| TimeSlot::WEEKDAY_SORT_ORDER.index(t.weekday)}.group_by(&:weekday).each do|weekday, time_slots| -%>
   <div class='weekday' id='<%= weekday %>'>
     <h1><%= weekday %></h1>
     <% time_slots.sort_by(&:start_at).each do|t| %>
       <div class="time_slot h_<%=t.duration_minutes/60-%><%= ' current' if t.current? -%>" id="<%= t.id %>">
-      <%= t.id %>)
-      <%= t.start_time %>-<%= t.end_time %>:
-      <%= t.scheduled.name %>
+      <%= render :partial => t.scheduled %>
       </div>
     <% end %>
   </div>

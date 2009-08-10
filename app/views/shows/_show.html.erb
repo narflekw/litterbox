@@ -1,0 +1,6 @@
+<div class="show" id="<%= show.id %>">
+  <div class="name"><%= show.name %></div>
+  <div class="description"><%= show.description %></div>
+  <div class="owner"><%= "(#{show.owner.name})" if show.owner %></div>
+  <div class="timeslots"><%= "[ #{show.time_slots.sort_by(&:wday).collect{|t| t.day_name+'-'+t.start_at.strftime('%I%p')}.join(', ')} ]" %></div>
+</div>

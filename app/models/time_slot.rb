@@ -11,6 +11,10 @@ class TimeSlot < ActiveRecord::Base
     %w[ N M T W R F S ].index(self.weekday)
   end
 
+  def day_name
+    {'N'=>'Sunday','M'=>'Monday','T'=>'Tuesday','W'=>'Wednesday','R'=>'Thursday','F'=>'Friday','S'=>'Saturday'}[self.weekday]
+  end
+
   def current?
     now = Time.now
     return false unless now.wday==self.wday

@@ -1,5 +1,12 @@
-<h1>Shows#index</h1>
-<p>Find me in app/views/shows/index.html.erb</p>
+<% content_for(:styles) do -%>
+  #shows.list .name , 
+  #shows.list .owner {
+    display: inline;
+  }
+  .show { margin-bottom: 10px; }
+<% end -%>
+<h1>Shows</h1>
+<div class="admin menu"><%= link_to "New Show", new_show_path %></div>
 <div class="list" id="shows">
-  <%= @shows.sort_by{|s| s.name }.collect{|s| "#{s.id}) #{s.name} (#{s.time_slots.collect{|t| t.weekday+'-'+t.start_at.strftime('%H%p')}.join(', ')})"}.join('<br/>') %>
+  <%= render :partial=>'shows/show.html', :collection=>@shows %>
 </div>

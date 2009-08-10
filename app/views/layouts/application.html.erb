@@ -1,8 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
   <head>
-    <title>Yar we be pirates.</title>
+    <title>Yar we be pirates. <%= @section_title %></title>
 
+    <%= stylesheet_link_tag "formtastic", "formtastic_changes", "formtastic_customized" if controller.action_name=='new' %>
 <style type="text/css">
 <!--
 <%= yield(:styles) %>
@@ -11,6 +12,11 @@
    <%= yield(:scripts) %>
   </head>
   <body>
-             <%= yield %>
+       <div id="flashes">
+       <%=  flash_for :error %>
+       <%=  flash_for :notice %>
+       <%=  flash_for :success %>
+       </div>
+       <%= yield %>
   </body>
 </html>

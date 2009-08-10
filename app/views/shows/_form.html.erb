@@ -1,0 +1,10 @@
+<% semantic_form_for @show do |form| -%>
+  <% form.inputs :id=>'new_show' do %>
+    <%= form.input :owner %>
+    <%= form.input :name %>
+    <%= form.input :description %>
+    <%= form.input :logo_file, :required=>false %>
+    <%= form.input :logo_location, :required=>false %>
+  <% end -%>
+  <%= form.buttons -%>
+<% end -%>

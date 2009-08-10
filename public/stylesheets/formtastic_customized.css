@@ -1,0 +1,3 @@
+form.formtastic fieldset ol li { display:block; }
+form.formtastic fieldset ol li label { width: 26% }
+form.formtastic fieldset.buttons { display: block; }

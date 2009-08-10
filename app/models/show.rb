@@ -8,6 +8,7 @@ class Show < ActiveRecord::Base
   has_many :guests
 
   validates_uniqueness_of :name
+  validates_presence_of :description, :owner_id
 
   #TODO: on delete give time_slots to "Open Shift"
 

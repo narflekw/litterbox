@@ -1,6 +1,7 @@
 class ShowsController < ApplicationController
   def index
-    @shows = Show.all
+    @shows = Show.all :order=>'name'
+    @section_title = "These be arrrr shows."
     respond_to do|client_wants|
       client_wants.html {}
       client_wants.xml { render :xml=>@shows.to_xml(:skip_types => true,
@@ -20,4 +21,12 @@ class ShowsController < ApplicationController
     end
   end
 
+  def new
+    @show = Show.new
+  end
+  def create
+    @show = Show.create!( params[:show] )
+    flash[:notice] = "New show created."
+    redirect_to shows_path
+  end
 end

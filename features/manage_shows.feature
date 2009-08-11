@@ -13,11 +13,29 @@ Feature: Manage Shows
     Given I have no shows
     And I am on the list of shows
     When I follow "New Show"
+    And I fill in "Owner" with "1"
     And I fill in "Name" with "Wicked Awesome Radio Show Name"
     And I fill in "Description" with "The best thing you have ever heard."
-    And I fill in "Owner" with "1"
     And I press "Create"
     Then I should see "New show created"
     And  I should see "Wicked Awesome Radio Show Name"
     And  I should see "The best thing you have ever heard."
     And I should have 1 show
+
+  Scenario Outline: Try to create invalid show
+    Given I have no shows
+    And I am on the list of shows
+    When I follow "New Show"
+    And I fill in "Owner" with "<owner>"
+    And I fill in "Name" with "<name>"
+    And I fill in "Description" with "<description>"
+    And I press "Create"
+    Then I should <action>
+
+    Examples:
+      | owner | name | description | action |
+      |       |      |             | see "Error creating show" |
+      |       | blah | foo         | see "Owner can't be blank" |
+      | 1     |      | bar         | see "Name can't be blank" |
+      | 1     | zot  |             | see "Description can't be blank" |
+ 

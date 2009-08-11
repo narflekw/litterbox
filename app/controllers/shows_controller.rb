@@ -26,7 +26,13 @@ class ShowsController < ApplicationController
   end
   def create
     @show = Show.create!( params[:show] )
-    flash[:notice] = "New show created."
+    flash[:success] = "New show created."
     redirect_to shows_path
+  rescue ActiveRecord::RecordInvalid
+    flash[:error] = "Error creating show. Fix the following and submit again. Arrrr!!!!!<br/>"
+    @show = Show.new( params[:show] )
+    @show.valid?
+    flash[:error] += "#{@show.errors.full_messages.join('<br/>')}"
+    render :action=>'new'
   end
 end

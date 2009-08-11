@@ -25,3 +25,5 @@ end
 require 'shoulda'
 require 'factory_girl'
 require "#{Rails.root}/test/factories" 
+
+World(Shoulda::ActionController::Matchers)

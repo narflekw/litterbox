@@ -1,0 +1,10 @@
+<% semantic_form_for @dj_profile do |form| -%>
+  <% form.inputs :id=>'new_dj_p rofile' do %>
+    <%= form.input :user %>
+    <%= form.input :name %>
+    <%= form.input :email %>
+    <%= form.input :twitter_id, :label=>'Twitter Id', :required=>false %>
+    <%= form.input :facebook_url, :required=>false %>
+  <% end -%>
+  <%= form.buttons -%>
+<% end -%>

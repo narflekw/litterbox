@@ -4,6 +4,6 @@ class DjProfile < ActiveRecord::Base
   has_many :broadcast_presences
   has_many :broadcasts, :through=>:broadcast_presences
 
-  validates_presence_of :name
+  validates_presence_of :user_id, :name, :email
   validates_uniqueness_of :name, :email
 end

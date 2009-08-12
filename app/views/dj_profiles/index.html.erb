@@ -1,0 +1,6 @@
+
+<h1>DJs</h1>
+<div class="admin menu"><%= link_to "New DJ", new_dj_profile_path %></div>
+<div class="list" id="shows">
+  <%= render :partial=>'dj_profiles/dj_profile.html', :collection=>@djs %>
+</div>

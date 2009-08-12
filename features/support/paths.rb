@@ -11,8 +11,8 @@ module NavigationHelpers
     when /the homepage/
       '/'
 
-    when /the list of shows/
-      shows_path
+    when /the list of (\w+)/
+      url_for(:controller=>$1, :action=>'index', :format=>'html')
 
     # Add more mappings here.
     # Here is a more fancy example:

@@ -1,7 +1,7 @@
-Feature: Manage Shows
+Feature: List and Create Shows
   In order to rule the airwaves with mighty programming
   As an administrator
-  I want to create and manage shows
+  I want to see a list of shows and create new shows
 
   Scenario: Shows List
     Given I have shows named "Monkey and Pals" and "Grand Theft Audio"
@@ -31,11 +31,12 @@ Feature: Manage Shows
     And I fill in "Description" with "<description>"
     And I press "Create"
     Then I should <action>
+    Then I should have 0 shows
 
     Examples:
-      | owner | name | description | action |
-      |       |      |             | see "Error creating show" |
-      |       | blah | foo         | see "Owner can't be blank" |
-      | 1     |      | bar         | see "Name can't be blank" |
-      | 1     | zot  |             | see "Description can't be blank" |
- 
+      | owner | name | description | action|
+      |       |      |             | see "Error creating show"|
+      |       | blah | foo         | see "Owner can't be blank"|
+      | 1     |      | bar         | see the error "Name ... can't be blank" in the show form|
+      | 1     | zot  |             | see the error "Description ... can't be blank" in the show form|
+

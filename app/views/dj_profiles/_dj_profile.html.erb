@@ -3,5 +3,10 @@
   <div class="email"><%= dj_profile.email %></div>
   <div class="twitter"><%= dj_profile.twitter_id %></div>
   <div class="facebook"><%= dj_profile.facebook_url %></div>
+  <div class="actions">
+    <%= link_to "view", dj_profile_path(dj_profile), :id=>"view_dj_profile_#{dj_profile.id}" %>
+    <%= link_to "edit", edit_dj_profile_path(dj_profile), :id=>"edit_dj_profile_#{dj_profile.id}" %>
+    <%= link_to "delete", dj_profile_path(dj_profile), :method=>:delete, :id=>"delete_dj_profile_#{dj_profile.id}" %>
+  </div>
 </div>
 

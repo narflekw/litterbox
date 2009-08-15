@@ -18,7 +18,7 @@ Feature: Manage DjProfiles
     And  I fill in "Email" with "newest.cat@piratecat.org"
     And  I fill in "Twitter Id" with "@newest_yarrrr"
     And  I press "Create"
-    Then I should see "New DJ created"
+    Then I should see "New DJ Profile created"
     And  I should see "Newest"
     And  I should see "newest.cat@piratecat.org"
     And  I should see "@newest_yarrrr"
@@ -36,7 +36,7 @@ Feature: Manage DjProfiles
 
     Examples:
       | user | name | email | action |
-      |      |      |       | see "Error creating DJ" |
+      |      |      |       | see "Error creating DJ Profile" |
       |      | bob  | a@b.c | see "User can't be blank" |
-      | 1    |      | a@b.c | see "Name can't be blank" |
-      | 1    | bob  |       | see "Email can't be blank" |
+      | 1    |      | a@b.c | see the error "Name ... can't be blank" in the dj_profile form |
+      | 1    | bob  |       | see the error "Email ... can't be blank" in the dj_profile form |

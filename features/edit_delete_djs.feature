@@ -24,18 +24,20 @@ Feature: Edit and Delete DJs
   Scenario Outline: Saving Changes
     Given I am on the list of dj_profiles
     When I edit dj_profile 1
-    And I fill in "User" with "<user>"
+    And I select "<user>" from "User"
     And I fill in "Name" with "<name>"
     And I fill in "Email" with "<email>"
     And I press "Save"
     Then I should <action>
 
     Examples:
-      | user | name | email | action |
-      |      |      |       | see "Error updating DJ" |
-      |      | bob  | a@b.c | see "User can't be blank" |
-      | 1    |      | a@b.c | see the error "Name ... can't be blank" in the dj_profile form |
-      | 1    | bob  |       | see the error "Email ... can't be blank" in the dj_profile form |
+      | user     | name | email | action |
+      |          |      |       | see "Error updating DJ" |
+      |          | bob  | a@b.c | see "User can't be blank" |
+      | Robert   |      | a@b.c | see the error "Name ... can't be blank" in the dj_profile form |
+      | Robert   | bob  |       | see the error "Email ... can't be blank" in the dj_profile form |
+      | Donna Jo | bob  | a@b.c | see "Saved changes to DJ Profile 1" |
+      | Robert   | DJ BobDobbs | bobdobbs@piratecat.org | see "No changes to save" |
 
   Scenario: Deleting dj_profiles
     Given I am on the list of dj_profiles

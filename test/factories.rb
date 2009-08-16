@@ -5,8 +5,10 @@ Factory.define :user do |f|
 end
 Factory.define :dj_profile do |f|
   f.association :user, :factory=>:user
-  f.sequence(:name) {|n| "Some Dude#{n}"}
-  f.sequence(:email) {|n| "some.dude#{n}@piratecat.net"}
+  f.sequence(:name) {|n| "Some DJ#{n}"}
+  f.sequence(:email) {|n| "some.dj#{n}@piratecat.net"}
+  f.twitter_id ""
+  f.facebook_url ""
 end
 Factory.define :show do |f|
   f.sequence(:name) {|n| "Some Show #{n}"}

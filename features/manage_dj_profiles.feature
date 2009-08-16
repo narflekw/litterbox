@@ -3,6 +3,12 @@ Feature: Manage DjProfiles
   As an administrator
   I want to create and manage dj profiles
 
+  Background:
+    Given the following user records
+      | id | name     | email               | role |
+      | 3  | Robert   | bobs.real@email.com | DJ |
+      | 4  | Donna Jo | dj@fullhouse.com    | intern |
+
   Scenario: DJ List
     Given I have dj_profiles named "Bob Dobbs" and "Steve McQueen"
     When I go to the list of dj_profiles
@@ -33,10 +39,11 @@ Feature: Manage DjProfiles
     And  I fill in "Email" with "<email>"
     And I press "Create"
     Then I should <action>
+    And  I should have 0 dj_profiles
 
     Examples:
-      | user | name | email | action |
-      |      |      |       | see "Error creating DJ Profile" |
-      |      | bob  | a@b.c | see "User can't be blank" |
-      | 1    |      | a@b.c | see the error "Name ... can't be blank" in the dj_profile form |
-      | 1    | bob  |       | see the error "Email ... can't be blank" in the dj_profile form |
+      | user   | name | email | action |
+      |        |      |       | see "Error creating DJ Profile" |
+      |        | bob  | a@b.c | see "User can't be blank" |
+      | Robert |      | a@b.c | see the error "Name ... can't be blank" in the dj_profile form |
+      | Robert | bob  |       | see the error "Email ... can't be blank" in the dj_profile form |

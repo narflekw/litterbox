@@ -8,4 +8,7 @@ module ApplicationHelper
                    :style => flash[symbol] ? nil : 'display: none' )
   end
 
+  def include_form_styles?
+    return true if %w[ new create edit update ].include?( controller.action_name )
+  end
 end

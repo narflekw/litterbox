@@ -28,10 +28,10 @@ class DjProfilesController < ApplicationController
     flash[:success] = "New DJ Profile created."
     redirect_to dj_profiles_path
   rescue ActiveRecord::RecordInvalid
-    flash[:error] = "Error creating DJ Profile. Fix the following and submit again. Arrrr!!!!!<br/>"
+    flash[:error] = "Error creating DJ Profile. Fix the <span class='inline-errors'>following</span> and submit again. Arrrr!!!!!<br/>"
     @dj_profile = DjProfile.new( params[:dj_profile] )
     @dj_profile.valid?
-    flash[:error] += "#{@dj_profile.errors.full_messages.join('<br/>')}"
+    add_user_error_message if @dj_profile.errors.invalid?(:user_id)
     render :action=>'new'
   end
 
@@ -66,6 +66,6 @@ class DjProfilesController < ApplicationController
     end
     def add_user_error_message
       flash[:error] ||= ""
-      flash[:error] += "User "+@dj_profile.errors.generate_message(:user, :blank)
+      flash[:error] += "<span class='inline-errors'>User #{@dj_profile.errors.generate_message(:user, :blank)}</span>"
     end
 end

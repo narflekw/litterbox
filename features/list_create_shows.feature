@@ -3,6 +3,12 @@ Feature: List and Create Shows
   As an administrator
   I want to see a list of shows and create new shows
 
+  Background:
+    Given the following dj_profile records
+      | name        | email |
+      | DJ BobDobbs | bobdobbs@piratecat.org |
+      | DJ Tanner   | dj_tanner@piratecat.org |
+
   Scenario: Shows List
     Given I have shows named "Monkey and Pals" and "Grand Theft Audio"
     When I go to the list of shows
@@ -26,7 +32,7 @@ Feature: List and Create Shows
     Given I have no shows
     And I am on the list of shows
     When I follow "New Show"
-    And I fill in "Owner" with "<owner>"
+    And I select "<owner>" from "Owner"
     And I fill in "Name" with "<name>"
     And I fill in "Description" with "<description>"
     And I press "Create"
@@ -34,9 +40,9 @@ Feature: List and Create Shows
     Then I should have 0 shows
 
     Examples:
-      | owner | name | description | action|
-      |       |      |             | see "Error creating show"|
-      |       | blah | foo         | see "Owner can't be blank"|
-      | 1     |      | bar         | see the error "Name ... can't be blank" in the show form|
-      | 1     | zot  |             | see the error "Description ... can't be blank" in the show form|
+      | owner     | name | description | action|
+      |           |      |             | see "Error creating show"|
+      |           | blah | foo         | see "Owner can't be blank"|
+      | DJ Tanner |      | bar         | see the error "Name ... can't be blank" in the show form|
+      | DJ Tanner | zot  |             | see the error "Description ... can't be blank" in the show form|
 

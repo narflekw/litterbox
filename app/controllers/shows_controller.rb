@@ -69,6 +69,6 @@ class ShowsController < ApplicationController
     end
     def add_owner_error_message
       flash[:error] ||= ""
-      flash[:error] += "Owner "+@show.errors.generate_message(:owner, :blank)
+      flash[:error] += "<span class='inline-errors'>Owner #{@show.errors.generate_message(:owner, :blank)}</span>"
     end
 end

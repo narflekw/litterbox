@@ -24,7 +24,7 @@ Feature: Edit and Delete Shows
   Scenario Outline: Saving Changes
     Given I am on the list of shows
     When I edit show 1
-    And I fill in "Owner" with "<owner>"
+    And I select "<owner>" from "Owner"
     And I fill in "Name" with "<name>"
     And I fill in "Description" with "<description>"
     And I fill in "Logo file" with "<logo_file>"
@@ -32,12 +32,12 @@ Feature: Edit and Delete Shows
     Then I should <action1>
 
     Examples:
-      | owner | name | description | logo_file | action1 |
-      |       |      |             |          | see "Error updating show" |
-      |       | blah | foo         | logo.png | see "Owner can't be blank" |
-      | 3     |      | bar         | logo.png | see the error "Name ... can't be blank" in the show form |
-      | 3     | zot  |             | logo.png | see the error "Description ... can't be blank" in the show form |
-      | 4     | superawesome-o  | teh best showz evar!!!! | new_logo.gif | see "Saved changes to Show 1" |
+      | owner     | name | description | logo_file | action1 |
+      |           |      |             |          | see "Error updating show" |
+      |           | blah | foo         | logo.png | see "Owner can't be blank" |
+      | bob foo   |      | bar         | logo.png | see the error "Name ... can't be blank" in the show form |
+      | bob foo   | zot  |             | logo.png | see the error "Description ... can't be blank" in the show form |
+      | chuck bar | superawesome-o  | teh best showz evar!!!! | new_logo.gif | see "Saved changes to Show 1" |
 
   Scenario: Deleting shows
     Given I am on the list of shows

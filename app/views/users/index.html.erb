@@ -1,0 +1,12 @@
+<% content_for(:styles) do -%>
+  #users.list .name , 
+  #users.list .owner {
+    display: inline;
+  }
+  .user { margin-bottom: 10px; }
+<% end -%>
+<h1>Users</h1>
+<div class="admin menu"><%= link_to "New User", new_user_path %></div>
+<div class="list" id="users">
+  <%= render :partial=>'users/user.html', :collection=>@users %>
+</div>

@@ -1,0 +1,7 @@
+<% semantic_form_for @user do |form| -%>
+  <% form.inputs :id=>'new_user' do %>
+    <%= form.input :name %>
+    <%= form.input :email %>
+  <% end -%>
+  <%= form.buttons -%>
+<% end -%>

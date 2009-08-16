@@ -2,6 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :guests
 
 
+  map.resources :users
+
   map.resources :dj_profiles
 
   map.resources :events

@@ -4,3 +4,4 @@ doc/controllers*.png
 *.sqlite3
 schema.rb
 tmp/*
+db/development_structure.sql
